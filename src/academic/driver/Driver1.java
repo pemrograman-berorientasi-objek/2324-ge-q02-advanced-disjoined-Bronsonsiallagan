@@ -268,7 +268,7 @@ public class Driver1 {
         // Print enrollments
         for(Enrollment ers : new_Enrollments) {
             if (!ers.getSebelum().equals("")) {
-                 
+                
                 System.out.println(ers.toRemediString());
             } else {
                 boolean found = false; 
@@ -303,7 +303,7 @@ public class Driver1 {
 public static double getGrade(String grade) {
     switch (grade) {
         case "A":
-            return 4.0; 
+            return 4.0;
         case "AB": 
             return 3.5;
         case "B":
