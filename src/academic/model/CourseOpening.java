@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * @author 12S22026 Ruben Sianipar
+ * 12S22025 Bronson Siallagan
  */
 
 public class CourseOpening {     

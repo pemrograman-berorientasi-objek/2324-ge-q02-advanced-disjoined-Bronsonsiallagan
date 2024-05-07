@@ -11,6 +11,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner; 
 
+// 12S22025 Bronson Siallagan
+// 12S22026 Ruben sianipar 
+
 public class Driver1 {
 
     private static double convertGrade(String grade) {
@@ -333,23 +336,22 @@ public class Driver1 {
                         double gpa = 0;
                         // Calculate GPA based on semester
                         if (isOddSemester) {
-                            gpa = student.calculateGPA(academicYear, "odd");
+                            gpa = student.calculateGPA(academicYear, "");
                         } else {
-                            gpa = student.calculateGPA(academicYear, "even");
+                            gpa = student.calculateGPA(academicYear, "");
                         }
                         if (gpa > maxGPA || (gpa == maxGPA && Integer.parseInt(student.getId().substring(4)) % 2 == 0)) {
                             maxGPA = gpa;
                             bestStudent = student.getId();
                         }
                     } 
-                    System.out.println(bestStudent + "|B/A");
+                    System.out.println(bestStudent + "|B/A"); 
                 }
             }
             
             
         }
             
-        
         // Print lecturers
         for (Lecturer lecturer : lecturers) {
             System.out.println(lecturer.getId() + "|" + lecturer.getName() + "|" + lecturer.getInitial() + "|"

@@ -4,6 +4,7 @@ package academic.model;
 
 /**
  * @author 12S22026 Ruben Sianipar
+ * 12S22025 Bronson Siallagan
  */
 
 public class Course {     
