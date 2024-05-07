@@ -14,5 +14,5 @@ public class Student extends Inheritance {
         this.year = year;
     }
     
-}
+} 
 
