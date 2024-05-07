@@ -1,6 +1,5 @@
 package academic.driver;
 
-import academic.model.AcademicPerson;
 import academic.model.Course;
 import academic.model.CourseOpening;
 import academic.model.Enrollment;
@@ -13,10 +12,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set; 
 
-/**
- * @author 12S22025 - Bronson TM Siallagan
- * @author 12S22026 - Ruben Sianipar 
- */
+// 12S22025 -Bronsonn TM Siallagan 
  
 public class Driver1 {  
  
@@ -191,19 +187,7 @@ public class Driver1 {
                             }  
                         }
                         break; 
-
-
-                        // case "find-the-best-student":
-                        //  for(Student student : students){
-                        //     if(student.getId().equals(tokens[1])) {
-                        //         for(Enrollment enrollment : enrollments ){
-                        //             if (enrollment.getStudentID().equals(tokens[2])){
-                                          
-                        //             }
-                        //         }
-                        //         System.out.println(courseOpenings.getYear()  + "|" + courseOpenings.getSemester());
-                        //     }
-                        //  }
+ 
                     case "course-history":
                         // Urutkan koleksi courseOpenings berdasarkan semester
                         courseOpenings.sort((c1, c2) -> c2.getSemester().compareTo(c1.getSemester()));
@@ -320,7 +304,7 @@ public static double getGrade(String grade) {
     switch (grade) {
         case "A":
             return 4.0;
-        case "AB":
+        case "AB": 
             return 3.5;
         case "B":
             return 3.0;
