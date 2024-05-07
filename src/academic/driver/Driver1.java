@@ -329,7 +329,7 @@ public class Driver1 {
                     boolean isOddSemester = semester.equals("odd");
             
                     // Assuming students is a collection of Student objects
-                    for (Student student : students) {
+                    for (Student student : students) { 
                         double gpa = 0;
                         // Calculate GPA based on semester
                         if (isOddSemester) {
@@ -342,16 +342,10 @@ public class Driver1 {
                             bestStudent = student.getId();
                         }
                     } 
-                    // Print the best student along with their grade and previous grade
                     System.out.println(bestStudent + "|B/A");
                 }
             }
             
-            
-            
-            
-            
-        
             
         }
             
