@@ -1,43 +1,66 @@
 package academic.model;
 
 /**
- * @author 12S22025 - Bronson TM Siallagan
- * @author 12S22026 - Ruben Sianipar 
+ * @author 12S22026 Ruben Sianipar
  */
-public class Lecturer extends AcademicPerson {
+   
+import java.util.Objects;
 
-    // class definition     
-    private String intial; 
+public class Lecturer {   
+    private String id;
+    private String name;
+    private String initial;
     private String email;
-    private String studyprogram;  
- 
-    //konstruktor 
-    public Lecturer(String id, String name, String intial, String email, String studyprogram) {
-        super.id = id;
-        super.name = name; 
-        this.intial = intial;
-        this.email = email;  
-        this.studyprogram = studyprogram; 
+    private String studyProgram;
+
+    public Lecturer(String id, String name, String initial, String email, String studyProgram) {
+        this.id = id;
+        this.name = name; 
+        this.initial = initial;
+        this.email = email;
+        this.studyProgram = studyProgram;
     }
 
-    public String getId() {   
-        return id; 
-    }    
- 
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
-        return name; 
-    } 
-
-    public String getInitial() { 
-        return intial; 
+        return name;
     }
 
-    public String getEmail() {   
-        return email;  
-    }  
- 
-    public String getStudyprogram() { 
-        return studyprogram;
+    public String getInitial() {
+        return initial;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getStudyProgram() {
+        return studyProgram;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     } 
+    
+
+
+@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lecturer lecturer = (Lecturer) o;
+        return Objects.equals(id, lecturer.id) &&
+               Objects.equals(name, lecturer.name) &&
+               Objects.equals(initial, lecturer.initial) &&
+               Objects.equals(email, lecturer.email) &&
+               Objects.equals(studyProgram, lecturer.studyProgram);
+    }
+
+@Override
+public int hashCode() {
+    return Objects.hash(id, name, initial, email, studyProgram);
 }
-      
+}

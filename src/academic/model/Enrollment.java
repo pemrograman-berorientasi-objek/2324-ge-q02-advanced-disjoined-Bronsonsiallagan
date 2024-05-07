@@ -1,94 +1,124 @@
 package academic.model;
 
+import java.util.Objects;
+
 /**
- * @author 12S22025 - Bronson TM Siallagan
- * @author 12S22026 - Ruben Sianipar 
+ * @author 12S22026 Ruben Sianipar
  */
+
 public class Enrollment {
-    private String courseID;
-    private String studentID;
-    private String year; 
+    private String student;
+    private String course;
+    private String academicYear;
     private String semester;
     private String grade; 
-    private String sebelum;  
-    private String remedial; 
-    private Integer  totalnilai; 
+    private String previousGrade; 
+    private boolean isRemedialDone;
 
-
-    public Enrollment(String courseID, String studentID, String year, String semester, String grade) {
-        this.courseID = courseID;
-        this.studentID = studentID;
-        this.year = year;
-        this.semester = semester;  
-        this.grade = grade;
-        this.sebelum = "";
-        this.remedial = null; 
-        this.totalnilai = 0;     
-         
-    }
- 
-    public String getCourseID() { 
-        return courseID;
+    // Constructor for creating an enrollment object with all fields set to the values passed as parameters
+    public Enrollment(String s, String c, String aY, String sem ) {
+        this.student = s;
+        this.course = c;
+        this.academicYear = aY; 
+        this.semester = sem;
+        this.grade = "None";  
+        this.isRemedialDone= false;
+        
+        
     }
 
-    public String getStudentID() { 
-        return studentID;
-    } 
 
-    public String getYear() { 
-        return year;  
+     public void setStudent(String student) {
+        this.student = student;
+    }   
+
+    public boolean isRemedialGrade() {
+    return previousGrade != null && isRemedialDone;
     }
 
-    public String getSemester() {  
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setAcademicYear(String academicYear) {
+        this.academicYear = academicYear;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public void setGrade(String grade) {
+    if (!this.grade.equals("None") && !isRemedialDone) {
+        this.previousGrade = this.grade;
+        this.isRemedialDone = true;
+    }
+    this.grade = grade;
+}
+
+    public String getStudent() {
+        return student;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public String getAcademicYear() {
+        return academicYear;
+    }
+
+    public String getSemester() {
         return semester;
     }
 
     public String getGrade() {
-        return grade; 
+        return grade;
+
     }
 
-    public void setGrade(String grade) { 
-        this.grade = grade; 
-    } 
+    
 
-    public String getSebelum() {
-        return sebelum;
-    }
-    public void setSebelum(String sebelum) {
-       this.sebelum = sebelum;
+    public String getPreviousGrade() {
+        return previousGrade;
     }
 
-    public String getRemedial() {
-        return remedial;
-    }   
-
-    public void setRemedial(String remedial) {
-        this.remedial = remedial;
+    public void setPreviousGrade(String previousGrade) {
+        this.previousGrade = previousGrade;
     }
 
-    public int getTotalnilai() {
-        return totalnilai;
+    public void setRemedialDone(boolean isRemedialDone) {
+        this.isRemedialDone = isRemedialDone;
     }
 
-    public void setTotalnilai() {
-        this.totalnilai += 1;  
+    public boolean isRemedialDone() {
+        return isRemedialDone;
     }
 
-    public void tukarGrade() {
-        String temp = ""; 
-        temp = this.grade;
-        this.grade = this.sebelum;
-        this.sebelum = temp;
-    }  
+    public String swapgrade (String grade) {
+        String temp = this.previousGrade;
+        this.previousGrade = grade;
+        return temp;
+    }
+        
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Enrollment enrollment = (Enrollment) o;
+        return Objects.equals(student, enrollment.student) &&
+               Objects.equals(course, enrollment.course) &&
+               Objects.equals(academicYear, enrollment.academicYear) &&
+               Objects.equals(semester, enrollment.semester) &&
+               Objects.equals(grade, enrollment.grade);
+    }
 
     @Override
     public String toString() {
-        return this.courseID + "|" + this.studentID + "|" + this.year + "|" + this.semester + "|" + this.grade;
+        return this.course + "|" + this.student + "|" + academicYear + "|" + semester + "|" + grade + "|" + previousGrade;
     }
-    public String toRemediString() {
-        return this.courseID + "|" + this.studentID + "|" + this.year + "|" + this.semester + "|" + this.grade + "(" +this.sebelum +")";
-    } 
 
- 
+
+    
+
 }
-   

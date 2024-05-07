@@ -1,41 +1,18 @@
 package academic.model;
 
-/**
- * @author 12S22025 - Bronson TM Siallagan
- * @author 12S22026 - Ruben Sianipar 
- */ 
-public class Student extends AcademicPerson {
- 
-    //buat atribut
-    private String angkatan;
-    private String prodi;   
- 
-    //buat konstruktor 
-    public Student(String id, String name, String angkatan, String prodi){
-        super.id = id;
-        super.name = name; 
-        this.prodi = prodi;  
-        this.angkatan = angkatan; 
-    }
- 
-    public String getId(){    
-        return id;    
-    }  
-   
-    public String getName(){  
-        return name; 
-    } 
+public class Student extends Inheritance {
+    private int year;
 
-    public String getAngkatan(){
-        return angkatan; 
-    }    
- 
-    public String getProdi(){ 
-        return prodi; 
+    public Student(String id, String name, int year, String studyProgram) {
+        super(id, name, null, studyProgram); 
+        this.year = year;
     }  
- 
-    public void setAngkatan(String angkatan){
-        this.angkatan = angkatan;
+    public int getYear() {
+        return year;   
     }
+    public void setYear(int year) {
+        this.year = year;
+    }
+    
 }
-  
+

@@ -1,44 +1,46 @@
 package academic.model;
 
 
+
 /**
- * @author 12S22025 - Bronson TM Siallagan
- * @author 12S22026 - Ruben Sianipar 
+ * @author 12S22026 Ruben Sianipar
  */
-import java.util.ArrayList; 
 
-public class Course extends AcademicPerson{
-
-    private int credits;
+public class Course {     
+    private String id;
+    private String name;
+    private int credits; 
     private String grade;
-    private ArrayList<Lecturer> lecturers;
+    
 
-    public Course(String code, String _name, int credits, String grade) {
-        super.id = code;
-        super.name = _name; 
+    public Course(String id, String name, int credits, String grade) {
+        this.id = id;
+        this.name = name;
         this.credits = credits; 
-        this.grade = grade;  
-  
-    } 
+        this.grade = grade;
+    }
+    
 
-    public String getCode() {   
-        return super.id; 
-    }   
- 
+    // Tambahkan getter untuk setiap field (id, name, credits, grade)
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
-        return name; 
-    }  
+        return name;
+    }
 
     public int getCredits() {
-        return credits;   
-    } 
+        return credits;
+    }
 
     public String getGrade() {
         return grade;
     }
 
-    public ArrayList<Lecturer> getLecturers() {
-        return lecturers;
+     @Override
+    public String toString() {
+        return id + "|" + name + "|" + credits + "|" + grade;
     }
-} 
-     
+}
+ 
