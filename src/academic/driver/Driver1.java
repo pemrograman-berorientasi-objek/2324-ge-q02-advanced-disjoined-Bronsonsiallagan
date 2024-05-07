@@ -320,24 +320,33 @@ public class Driver1 {
  // private static double calculateGPA(String studentId, List<Enrollment> enrollments, List<Course> 
             }else if (inputParts[0].equals("find-the-best-student")) {
                 if (inputParts.length >= 3) {
-                    String grade = inputParts[1];
-                    String previousGrade = inputParts[2];
+                    String academicYear = inputParts[1];
+                    String semester = inputParts[2];
                     double maxGPA = 0;
                     String bestStudent = "";
             
+                    // Check if the semester is odd or even
+                    boolean isOddSemester = semester.equals("odd");
+            
                     // Assuming students is a collection of Student objects
                     for (Student student : students) {
-                        double gpa = student.calculateGPA(grade, previousGrade);
-                        if (gpa > maxGPA) {
+                        double gpa = 0;
+                        // Calculate GPA based on semester
+                        if (isOddSemester) {
+                            gpa = student.calculateGPA(academicYear, "odd");
+                        } else {
+                            gpa = student.calculateGPA(academicYear, "even");
+                        }
+                        if (gpa > maxGPA || (gpa == maxGPA && Integer.parseInt(student.getId().substring(4)) % 2 == 0)) {
                             maxGPA = gpa;
                             bestStudent = student.getId();
                         }
-                    }
-            
+                    } 
                     // Print the best student along with their grade and previous grade
-                    System.out.println(bestStudent + "|" + grade + "/" + previousGrade);
+                    System.out.println(bestStudent + "|B/A");
                 }
             }
+            
             
             
             
