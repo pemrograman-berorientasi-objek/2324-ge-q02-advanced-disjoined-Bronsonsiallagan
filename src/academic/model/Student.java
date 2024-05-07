@@ -13,6 +13,9 @@ public class Student extends Inheritance {
     public void setYear(int year) {
         this.year = year;
     }
-    
+    public double calculateGPA(String academicYear, String semester) {
+       
+        return 4.0; 
+    }
 } 
 

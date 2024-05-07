@@ -316,11 +316,37 @@ public class Driver1 {
                     }
 
                 }
-
-            }else if(inputParts[0].equals("find-the-best-student")) {
-               
+                
+ // private static double calculateGPA(String studentId, List<Enrollment> enrollments, List<Course> 
+            }else if (inputParts[0].equals("find-the-best-student")) {
+                if (inputParts.length >= 3) {
+                    String grade = inputParts[1];
+                    String previousGrade = inputParts[2];
+                    double maxGPA = 0;
+                    String bestStudent = "";
+            
+                    // Assuming students is a collection of Student objects
+                    for (Student student : students) {
+                        double gpa = student.calculateGPA(grade, previousGrade);
+                        if (gpa > maxGPA) {
+                            maxGPA = gpa;
+                            bestStudent = student.getId();
+                        }
+                    }
+            
+                    // Print the best student along with their grade and previous grade
+                    System.out.println(bestStudent + "|" + grade + "/" + previousGrade);
+                }
             }
+            
+            
+            
+            
+        
+            
         }
+            
+        
         // Print lecturers
         for (Lecturer lecturer : lecturers) {
             System.out.println(lecturer.getId() + "|" + lecturer.getName() + "|" + lecturer.getInitial() + "|"
