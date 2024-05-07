@@ -193,17 +193,17 @@ public class Driver1 {
                         break; 
 
 
-                        case "find-the-best-student":
-                         for(Student student : students){
-                            if(student.getId().equals(tokens[1])) {
-                                for(Enrollment enrollment : enrollments ){
-                                    if (enrollment.getStudentID().equals(tokens[2])){
+                        // case "find-the-best-student":
+                        //  for(Student student : students){
+                        //     if(student.getId().equals(tokens[1])) {
+                        //         for(Enrollment enrollment : enrollments ){
+                        //             if (enrollment.getStudentID().equals(tokens[2])){
                                           
-                                    }
-                                }
-                                System.out.println(courseOpenings.getYear()  + "|" + courseOpenings.getSemester());
-                            }
-                         }
+                        //             }
+                        //         }
+                        //         System.out.println(courseOpenings.getYear()  + "|" + courseOpenings.getSemester());
+                        //     }
+                        //  }
                     case "course-history":
                         // Urutkan koleksi courseOpenings berdasarkan semester
                         courseOpenings.sort((c1, c2) -> c2.getSemester().compareTo(c1.getSemester()));
